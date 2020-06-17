@@ -5,7 +5,7 @@ const initialFormValues = {
   name: '',
   email: '',
   password: '',
-  termsOfService: ''
+  termsOfService: false
 }
 
 function App() {
@@ -17,6 +17,9 @@ function App() {
   const textChangeHandler = evt => {
     const { name, value } = evt.target
 
+    // COME BACK AND DO VALIDATION HERE WITH YUP
+
+
     // console.log(`Ready to handle ${name}, with a value of ${value}`)
     setFormValues({
       ...formValues,
@@ -26,7 +29,8 @@ function App() {
   const checkboxHandler = evt => {
     const { name, checked} = evt.target
 
-    console.log(`I think it is the checkbox ${name} with the value ${checked}`)
+    // console.log(`I think it is the checkbox ${name} with the value ${checked}`)
+    setFormValues({ ...formValues, [name]: checked })
   }
   const submitHandler = evt => {
     evt.preventDefault()

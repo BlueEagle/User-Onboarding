@@ -38,7 +38,7 @@ function NewUserForm(props) {
       <input
           name='termsOfService'
           type='checkbox'
-          value={termsOfService}
+          checked={termsOfService}
           onChange={checkboxHandler}
         />
       </label>
