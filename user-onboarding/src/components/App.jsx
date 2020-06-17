@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import NewUserForm from './NewUserForm';
+import newUserSchema from '../resources/userFormSchema';
 
 const initialFormValues = {
   name: '',
@@ -11,6 +12,7 @@ const initialFormValues = {
 function App() {
   const [formValues, setFormValues] = useState(initialFormValues)
   const [userList, setUserList] = useState([])
+  const [disabled, setDisabled] = useState(true)
 
 
   // Handle the changes!
@@ -40,7 +42,10 @@ function App() {
 
   return (
     <div className="App">
-      <NewUserForm values={formValues} handlers={[textChangeHandler, checkboxHandler, submitHandler]} />
+      <NewUserForm 
+      values={formValues} 
+      handlers={[textChangeHandler, checkboxHandler, submitHandler]} 
+      disabled={disabled} />
     </div>
   );
 }
