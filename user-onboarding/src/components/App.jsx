@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import NewUserForm from './NewUserForm';
 import userFormSchema from '../resources/userFormSchema';
-import UsersDisplay from './UsersDisplay'
+import UserDisplay from './UserDisplay'
 import * as Yup from 'yup';
 import Axios from 'axios';
 
@@ -29,11 +29,11 @@ function App() {
   const postUser = user => {
     Axios.post(API_URL, user)
       .then(res => {
-        setUserList(res.data)
+        setUserList([...userList, res.data])
         console.log('post success!')
       })
       .catch(err => {
-        console.err(err)
+        console.error(err)
       })
   }
 
@@ -101,7 +101,16 @@ function App() {
       handlers={[textChangeHandler, checkboxHandler, submitHandler]} 
       disabled={disabled}
       errors={formErrors} />
-      <UsersDisplay />
+
+      {/* {
+        console.log(userList)
+      } */}
+
+      {
+        userList.map(user => {
+          return <UserDisplay user={user} />
+        })
+      }
     </div>
   );
 }
