@@ -17,7 +17,11 @@ function App() {
   const textChangeHandler = evt => {
     const { name, value } = evt.target
 
-    console.log(`Ready to handle ${name}, with a value of ${value}`)
+    // console.log(`Ready to handle ${name}, with a value of ${value}`)
+    setFormValues({
+      ...formValues,
+      [name]: value
+    })
   }
   const checkboxHandler = evt => {
     const { name, checked} = evt.target
