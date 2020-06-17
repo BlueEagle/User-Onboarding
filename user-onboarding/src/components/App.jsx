@@ -4,6 +4,7 @@ import userFormSchema from '../resources/userFormSchema';
 import UserDisplay from './UserDisplay'
 import * as Yup from 'yup';
 import Axios from 'axios';
+import styled from 'styled-components';
 
 const API_URL = 'https://reqres.in/api/users'
 const initialFormValues = {
@@ -95,7 +96,7 @@ function App() {
 
 
   return (
-    <div className="App">
+    <ComponentDisplay className="App">
       <NewUserForm 
       values={formValues} 
       handlers={[textChangeHandler, checkboxHandler, submitHandler]} 
@@ -108,11 +109,17 @@ function App() {
 
       {
         userList.map(user => {
-          return <UserDisplay user={user} />
+          return <UserDisplay key={user.id} user={user} />
         })
       }
-    </div>
+    </ComponentDisplay>
   );
 }
 
 export default App;
+
+// Styles
+const ComponentDisplay = styled.div`
+  display: flex;
+  justify-content: center;
+`
