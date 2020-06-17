@@ -12,7 +12,7 @@ function NewUserForm(props) {
 
       <FormHeader>New User?</FormHeader>
       <RoomyLabel>Name:
-        <RoomyInput
+        <input
           name='name'
           type='text'
           value={name}
@@ -21,7 +21,7 @@ function NewUserForm(props) {
       </RoomyLabel>   
 
       <RoomyLabel>Email:
-      <RoomyInput
+      <input
           name='email'
           type='email'
           value={email}
@@ -30,7 +30,7 @@ function NewUserForm(props) {
       </RoomyLabel>
 
       <RoomyLabel>Password:
-      <RoomyInput
+      <input
           name='password'
           type='password'
           value={password}
@@ -39,7 +39,7 @@ function NewUserForm(props) {
       </RoomyLabel>
 
       <RoomyLabel>Terms of Service:
-      <RoomyInput
+      <input
           name='termsOfService'
           type='checkbox'
           checked={termsOfService}
@@ -47,7 +47,7 @@ function NewUserForm(props) {
         />
       </RoomyLabel>
 
-      <RoomyInput type='submit' disabled={disabled} />
+      <input type='submit' disabled={disabled} />
 
       <div className="errors">
         <div>{errors.name}</div>
@@ -62,8 +62,10 @@ function NewUserForm(props) {
 export default NewUserForm
 
 const StyledForm = styled.form`
+  width: 70%;
   display: flex;
   flex-direction: column;
+  align-items: center;
   background: lightblue;
   padding: 5%;
   border-radius: 20px;
@@ -77,7 +79,4 @@ const FormHeader = styled.h2`
 const RoomyLabel = styled.label`
   margin-top: 3%;
   margin-bottom: 3%;
-`
-const RoomyInput = styled.input`
-  margin-left: 3%;
 `

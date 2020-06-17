@@ -103,10 +103,6 @@ function App() {
       disabled={disabled}
       errors={formErrors} />
 
-      {/* {
-        console.log(userList)
-      } */}
-
       {
         userList.map(user => {
           return <UserDisplay key={user.id} user={user} />
@@ -121,5 +117,6 @@ export default App;
 // Styles
 const ComponentDisplay = styled.div`
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 `
