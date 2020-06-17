@@ -1,8 +1,16 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+
+const initialFormValues = {
+  name: '',
+  email: '',
+  password: '',
+  termsOfService: ''
+}
 
 function App() {
+  const [formValues, setFormValues] = useState(initialFormValues)
+  const [userList, setUserList] = useState([])
+
   return (
     <div className="App">
       
