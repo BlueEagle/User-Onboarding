@@ -3,7 +3,7 @@ import React from 'react'
 function NewUserForm(props) {
   const { name, email, password, termsOfService } = props.values
   const [ textChangeHandler, checkboxHandler, submitHandler ] = props.handlers
-  const { disabled } = props
+  const { disabled, errors } = props
 
 
   return (
@@ -45,6 +45,13 @@ function NewUserForm(props) {
       </label>
 
       <input type='submit' disabled={disabled} />
+
+      <div className="errors">
+        <div>{errors.name}</div>
+        <div>{errors.email}</div>
+        <div>{errors.password}</div>
+        <div>{errors.termsOfService}</div>
+      </div>
     </form>
   )
 }
